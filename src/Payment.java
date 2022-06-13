@@ -7,7 +7,7 @@ public class Payment extends Schedule {
     protected void queryPayment() {
         Scanner in_queryPayment = new Scanner(System.in);
 
-        if(Integer.parseInt(bandInformations.get("Economy")[2]) == 0 && Integer.parseInt(bandInformations.get("Economy")[3]) == 0) {
+        if(Integer.parseInt(bandInformations.get("Economy")[2]) == 0 && Integer.parseInt(bandInformations.get("Economy")[3]) == 0 && Integer.parseInt(bandInformations.get("VIP")[2]) == 0 && Integer.parseInt(bandInformations.get("VIP")[3]) == 0) {
             System.out.println("Sorry, all of the tickets are being sold for both Economy and VIP!\n");
         } else {
             super.getTicket();
