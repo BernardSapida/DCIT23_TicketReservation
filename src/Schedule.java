@@ -18,7 +18,7 @@ public class Schedule extends Ticket {
      */
     protected void getTicketType() {
         Scanner in_getTicketType = new Scanner(System.in);
-        System.out.println("\n###########################################################################################\n");
+        System.out.println("\n#################################################################################################################\n");
 
         System.out.print("Please enter the ticket type: ");
         int selectedTicket = in_getTicketType.nextInt();
@@ -47,7 +47,7 @@ public class Schedule extends Ticket {
                 System.out.println("Sorry, Ma'am/Sir! All of the tickets for " + ticketType + " are being purchased. Please try another ticket!");
                 getTicketType();
             } else {
-                System.out.println("\n###########################################################################################\n");
+                System.out.println("\n#################################################################################################################\n");
                 System.out.println("Pick a schedule:");
                 System.out.println("A. 9AM (" + bandInformations.get(ticketType)[2] + " slots available)");
                 System.out.println("B. 1PM (" + bandInformations.get(ticketType)[3] + " slots available)");
@@ -90,7 +90,7 @@ public class Schedule extends Ticket {
      */
     protected void buyTicket() {
         Scanner in_buyTicket = new Scanner(System.in);
-        System.out.println("\n###########################################################################################\n");
+        System.out.println("\n#################################################################################################################\n");
         
         System.out.print("No. of tickets to buy: ");
         int quantity = in_buyTicket.nextInt();
@@ -114,7 +114,7 @@ public class Schedule extends Ticket {
      * It displays the summary of the ticket purchase.
      */
     protected void displaySummary() {
-        System.out.println("\n###########################################################################################\n");
+        System.out.println("\n#################################################################################################################\n");
         System.out.println("Summary:");
         System.out.println("Ticket type: " + ticketType);
         System.out.println("Schedule: " + ((chosenSchedule == 2) ? "9AM" : "1PM"));

@@ -35,7 +35,7 @@ public class Ticket {
      * This function prints out the ticket options and their prices
      */
     protected void getTicket() {
-        System.out.println("\n###########################################################################################\n");
+        System.out.println("\n#################################################################################################################\n");
         System.out.println("Select a ticket:");
         System.out.println("1. Economy $" + ticketInformation.get("Economy").get(0) + ".00");
         System.out.println("2. VIP $" + ticketInformation.get("VIP").get(0) + ".00");
