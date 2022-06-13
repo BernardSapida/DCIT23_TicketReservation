@@ -15,13 +15,14 @@ public class Terminal extends Payment {
             super.getTicket();
             super.getTicketType();
             super.getSchedule();
+            displaySummary();
             System.out.println("\n#################################################################################################################\n");
             System.out.print("Enter payment: ");
             int payment = in_queryPayment.nextInt();
 
             while(true) {
-                if(payment >= (ticketInformation.get(ticketType).get(0) * ticketQuantity)) {
-                    int change = payment - (ticketInformation.get(ticketType).get(0) * ticketQuantity);
+                if(payment >= (getTicket().get(ticketType).get(0) * ticketQuantity)) {
+                    int change = payment - getTotalAmount();
                     System.out.println("Transaction successful, your change is: $" + change + ".00");
                     break;
                 } else {
@@ -37,7 +38,7 @@ public class Terminal extends Payment {
      * It asks the user if he/she wants to buy another ticket. If yes, it will call the queryTerminal()
      * function again. If no, it will break the loop and print a thank you message
      */
-    protected void reserverTicket() {
+    protected void reserveTicket() {
         Scanner in = new Scanner(System.in);
 
         main: while(true) {
@@ -54,5 +55,17 @@ public class Terminal extends Payment {
             }
         }
         System.out.println("Thank you for buying tickets! Enjoy our band jamming session and we hope you'll like it ^_^.");
+    }
+
+    /**
+     * It displays the summary of the ticket purchase.
+     */
+    protected void displaySummary() {
+        System.out.println("\n#################################################################################################################\n");
+        System.out.println("Summary:");
+        System.out.println("Ticket type: " + ticketType);
+        System.out.println("Schedule: " + ((chosenSchedule == 2) ? "9AM" : "1PM"));
+        System.out.println("No. of tickets: " + ticketQuantity);
+        System.out.println("Amount to pay: $" + (getTicket().get(ticketType).get(0) * ticketQuantity) + ".00");
     }
 }

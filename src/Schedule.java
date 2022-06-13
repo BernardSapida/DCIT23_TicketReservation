@@ -8,8 +8,8 @@ public class Schedule extends Ticket {
 
     // Initializing the HashMap.
     Schedule() {
-        bandInformations.put("Economy", new String[] {"9AM", "1PM", String.valueOf(ticketInformation.get("Economy").get(1)), String.valueOf(ticketInformation.get("Economy").get(2))});
-        bandInformations.put("VIP", new String[] {"9AM", "1PM", String.valueOf(ticketInformation.get("VIP").get(1)), String.valueOf(ticketInformation.get("VIP").get(2))});
+        bandInformations.put("Economy", new String[] {"9AM", "1PM", String.valueOf(getTicket().get("Economy").get(1)), String.valueOf(getTicket().get("Economy").get(2))});
+        bandInformations.put("VIP", new String[] {"9AM", "1PM", String.valueOf(getTicket().get("VIP").get(1)), String.valueOf(getTicket().get("VIP").get(2))});
     }
 
     /**
@@ -17,8 +17,12 @@ public class Schedule extends Ticket {
      * input again
      */
     protected void getTicketType() {
-        Scanner in_getTicketType = new Scanner(System.in);
         System.out.println("\n#################################################################################################################\n");
+        System.out.println("Select a ticket:");
+        System.out.println("1. Economy $" + getTicket().get("Economy").get(0) + ".00");
+        System.out.println("2. VIP $" + getTicket().get("VIP").get(0) + ".00");
+
+        Scanner in_getTicketType = new Scanner(System.in);
 
         System.out.print("Please enter the ticket type: ");
         int selectedTicket = in_getTicketType.nextInt();
@@ -100,7 +104,6 @@ public class Schedule extends Ticket {
                 ticketQuantity = quantity;
                 bandInformations.get(ticketType)[chosenSchedule] = String.valueOf(Integer.parseInt(bandInformations.get(ticketType)[chosenSchedule]) - ticketQuantity);
                 setTicket(ticketType, quantity, chosenSchedule-1);
-                displaySummary();
                 break;
             } else {
                 System.out.println("Sorry, Ma'am/Sir! we only have " + bandInformations.get(ticketType)[chosenSchedule] + " tickets available. Please try again!\n");
@@ -108,17 +111,5 @@ public class Schedule extends Ticket {
                 quantity = in_buyTicket.nextInt();
             }
         }
-    }
-
-    /**
-     * It displays the summary of the ticket purchase.
-     */
-    protected void displaySummary() {
-        System.out.println("\n#################################################################################################################\n");
-        System.out.println("Summary:");
-        System.out.println("Ticket type: " + ticketType);
-        System.out.println("Schedule: " + ((chosenSchedule == 2) ? "9AM" : "1PM"));
-        System.out.println("No. of tickets: " + ticketQuantity);
-        System.out.println("Amount to pay: $" + (ticketInformation.get(ticketType).get(0) * ticketQuantity) + ".00");
     }
 }

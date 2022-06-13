@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Ticket {
-    protected HashMap<String, ArrayList<Integer>> ticketInformation = new HashMap<String, ArrayList<Integer>>();
+    private HashMap<String, ArrayList<Integer>> ticketInformation = new HashMap<String, ArrayList<Integer>>();
 
     // The constructor of the Ticket class. It is used to initialize the ticketInformation HashMap.
     Ticket() {
@@ -32,12 +32,11 @@ public class Ticket {
     }
 
     /**
-     * This function prints out the ticket options and their prices
+     * This function returns a HashMap of String keys and ArrayList of Integer values
+     * 
+     * @return A HashMap of String and ArrayList of Integer.
      */
-    protected void getTicket() {
-        System.out.println("\n#################################################################################################################\n");
-        System.out.println("Select a ticket:");
-        System.out.println("1. Economy $" + ticketInformation.get("Economy").get(0) + ".00");
-        System.out.println("2. VIP $" + ticketInformation.get("VIP").get(0) + ".00");
+    protected HashMap<String, ArrayList<Integer>> getTicket() {
+        return ticketInformation;
     }
 }

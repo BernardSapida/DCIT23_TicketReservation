@@ -4,6 +4,6 @@ public class TestClass {
     
     public static void main(String[] args) throws Exception {
         terminal.queryTerminal();
-        terminal.reserverTicket();
+        terminal.reserveTicket();
     }
 }

@@ -5,7 +5,7 @@ public class Payment extends Schedule {
      * ticket price, it will ask the user to enter the payment again
      */
     protected int getTotalAmount() {
-        int totalAmount = (ticketInformation.get(ticketType).get(0) * ticketQuantity);
+        int totalAmount = (getTicket().get(ticketType).get(0) * ticketQuantity);
         return totalAmount;
     }
 }
