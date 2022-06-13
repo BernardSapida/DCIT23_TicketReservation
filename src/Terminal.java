@@ -2,6 +2,7 @@ import java.util.*;
 
 public class Terminal {
     protected static Payment payment = new Payment();
+    
     public static void main(String[] args) throws Exception {
         payment.queryPayment();
         reserverTicket();
