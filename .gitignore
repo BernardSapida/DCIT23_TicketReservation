@@ -1,7 +1,4 @@
 *.log
-
 bin/
-
 lib/
-
 .vscode/
